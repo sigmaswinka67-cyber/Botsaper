@@ -1,4 +1,4 @@
-worker: python start_support_bot.py
+worker: python bosnia1bot.py
 
 
 
