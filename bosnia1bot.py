@@ -1,14 +1,11 @@
 import asyncio
 import random
 import time
-import requests
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import Command
 
 TOKEN = "8667721333:AAFYC1yIMpjb0aTQDonDigQP6sjY-SUjFEc"
-
-SERVER = "https://yourapp.up.railway.app/bot_activity"
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
@@ -28,19 +25,6 @@ NUM = {
 7:"7️⃣",
 8:"8️⃣"
 }
-
-
-async def bot_activity():
-    while True:
-        try:
-            requests.post(SERVER,json={
-                "bot_id":"bot_1",
-                "status":"working"
-            })
-        except:
-            pass
-
-        await asyncio.sleep(300)
 
 
 def get_key(callback_or_msg):
@@ -324,7 +308,6 @@ async def click(callback:CallbackQuery):
 
 
 async def main():
-    asyncio.create_task(bot_activity())
     await dp.start_polling(bot)
 
 
