@@ -6,19 +6,6 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import Command
 
-while True:
-    try:
-        requests.post(
-            "https://checkbot-production-b44c.up.railway.app/bot_activity",
-            json={
-                "bot_id": "Saperbot",
-                "status": "working"
-            }
-        )
-    except:
-        pass
-
-    time.sleep(55)
 TOKEN = "8667721333:AAFYC1yIMpjb0aTQDonDigQP6sjY-SUjFEc"
 
 bot = Bot(token=TOKEN)
@@ -319,7 +306,19 @@ async def click(callback:CallbackQuery):
         pass
 
     await callback.answer()
+while True:
+    try:
+        requests.post(
+            "https://checkbot-production-b44c.up.railway.app/bot_activity",
+            json={
+                "bot_id": "Saperbot",
+                "status": "working"
+            }
+        )
+    except:
+        pass
 
+    time.sleep(55)
 
 async def main():
     await dp.start_polling(bot)
@@ -327,4 +326,5 @@ async def main():
 
 if __name__=="__main__":
     asyncio.run(main())
+
 
