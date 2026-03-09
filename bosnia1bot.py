@@ -323,11 +323,13 @@ async def click(callback:CallbackQuery):
     await callback.answer()
 
 async def main():
+    asyncio.create_task(bot_activity())
     await dp.start_polling(bot)
 
 
 if __name__=="__main__":
     asyncio.run(main())
+
 
 
 
