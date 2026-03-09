@@ -27,6 +27,21 @@ NUM = {
 8:"8️⃣"
 }
 
+async def bot_activity():
+
+    while True:
+        try:
+            requests.post(
+                "https://checkbot-production-b44c.up.railway.app/bot_activity",
+                json={
+                    "bot_id": "Saperbot",
+                    "status": "working"
+                }
+            )
+        except:
+            pass
+
+        await asyncio.sleep(55)
 
 def get_key(callback_or_msg):
     return (callback_or_msg.chat.id, callback_or_msg.from_user.id)
@@ -313,6 +328,7 @@ async def main():
 
 if __name__=="__main__":
     asyncio.run(main())
+
 
 
 
